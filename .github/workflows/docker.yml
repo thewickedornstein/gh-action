@@ -13,3 +13,5 @@ jobs:
           run: |
             tree
             docker
+            cd App
+            dotnet run
