@@ -1,4 +1,14 @@
-{
-  "age": 28,
-  "name": "Ali"
-}
+name: Vitalii
+age: 30
+address: "City: Dnipro"
+active: true
+key:
+    key: value
+    key2: value2
+    key3:
+        key: one
+        key2: two
+array:
+    - value0
+    - value1
+    - {key: one}
