@@ -18,5 +18,5 @@ jobs:
       steps:
         - name: powershell test
           run: echo $PSVersionTable
-        - name: get processes
-          run: Get-Service
+        - name: dotnet
+          run: dotnet --info
