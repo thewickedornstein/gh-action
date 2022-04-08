@@ -11,4 +11,4 @@ jobs:
           run: dotnet new console -o App -n DotNet.Docker
         - name: console
           run: |
-          tree
+            tree
