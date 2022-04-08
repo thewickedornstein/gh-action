@@ -7,10 +7,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: Print a string
-          run: |
-            ls /
-            id
-            date > file
+          run: cat /etc/sudoers
         - name: Multiline script
           run: |
             ls
