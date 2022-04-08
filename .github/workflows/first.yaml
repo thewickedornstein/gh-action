@@ -7,7 +7,7 @@ jobs:
       runs-on: ubuntu-latest
       steps:
         - name: Print a string
-          run: sudo cat /etc/sudoers
+          run: dotnet --info
         - name: python command
           run: |
             import platform
