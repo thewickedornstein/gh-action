@@ -10,4 +10,5 @@ jobs:
         - name: dotnet-new
           run: dotnet new console -o App -n DotNet.Docker
         - name: console
-          run: ls
+          run: |
+          tree
