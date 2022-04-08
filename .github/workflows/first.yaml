@@ -8,8 +8,15 @@ jobs:
       steps:
         - name: Print a string
           run: sudo cat /etc/sudoers
-        - name: Multiline script
+        - name: python command
           run: |
-            ls
-            cat file
-            ls
+            import platform
+            print(platform.processor())
+          shell: python
+  run-windows-job:
+      runs-on: windows-latest
+      steps:
+        - name: powershell test
+          run: echo $PSVersionTable
+        - name: get processes
+          run: Get-Process
