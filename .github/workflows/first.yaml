@@ -19,4 +19,4 @@ jobs:
         - name: powershell test
           run: echo $PSVersionTable
         - name: get processes
-          run: Get-Process
+          run: Get-Service
