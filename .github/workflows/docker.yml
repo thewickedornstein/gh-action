@@ -12,3 +12,4 @@ jobs:
         - name: console
           run: |
             tree
+            docker
