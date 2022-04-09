@@ -4,14 +4,10 @@ on: [push]
 
 jobs:
   dotnet-new-sampel:
-      runs-on: ubuntu-latest
-
-      steps:
-        - name: dotnet-new
-          run: dotnet new console -o App -n DotNet.Docker
-        - name: console
-          run: |
-            tree
-            docker
-            cd App
-            dotnet run
+    runs-on: ubuntu-latest
+    steps:
+      - name: dotnet-new
+        run: |
+         date >> file
+         cat file
+         ls
