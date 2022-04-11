@@ -4,24 +4,22 @@ on: [push]
 
 jobs:
   run-shell-command:
-  
-      runs-on: ubuntu-latest
-  
-      steps:
-        - name: Print a string
-          run: dotnet --info
-        - name: python command
-          run: |
-            import platform
-            print(platform.processor())
-          shell: python
-  
+    runs-on: ubuntu-latest
+    steps:
+      - name: produce a file
+        run: date > file
+      - name: uploca file
+        uses: actions/upload-artifact@v3
+        with:
+          name: file
+          path: file
   run-windows-job:
-  
-      runs-on: windows-latest
-      needs: ["run-shell-command"]
-      steps:
-        - name: powershell test
-          run: echo $PSVersionTable
-        - name: dotnet
-          run: dotnet --info
+    runs-on: windows-latest
+    needs: ["run-shell-command"]
+    steps:
+      - name: download artifact
+        uses: actions/download-artifact@v3
+        with: 
+          name: file
+      - name: pwsh
+        run: cat file
