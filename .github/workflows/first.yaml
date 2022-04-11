@@ -8,5 +8,5 @@ jobs:
     steps:
       - name: run test
         run: |
-          EXIT_CODE=0
+          EXIT_CODE=1
           exit $EXIT_CODE 
