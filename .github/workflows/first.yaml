@@ -1,27 +1,12 @@
-name: Shell Commands
-
-on: [push,pull_request]
-
+name: Merge Validation test
+on: 
+  - push
+  - pull_request
 jobs:
-  run-shell-command:
+  run-test:
     runs-on: ubuntu-latest
     steps:
-      - name: produce a file
+      - name: run test
         run: |
-          date > file
-          hostname >> file
-      - name: upload a file
-        uses: actions/upload-artifact@v3
-        with:
-          name: file
-          path: file
-  run-windows-job:
-    runs-on: windows-latest
-    #needs: ["run-shell-command"]
-    steps:
-      - name: download the file
-        uses: actions/download-artifact@v3
-        with: 
-          name: file
-      - name: pwsh
-        run: cat file
+          EXIT_CODE=0
+          exit $EXIT_CODE 
