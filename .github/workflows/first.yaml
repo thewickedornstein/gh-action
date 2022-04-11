@@ -7,8 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: produce a file
-        run: date > file
-      - name: uploca file
+        run: |
+          date > file
+          hostname >> file
+      - name: upload a file
         uses: actions/upload-artifact@v3
         with:
           name: file
@@ -17,7 +19,7 @@ jobs:
     runs-on: windows-latest
     needs: ["run-shell-command"]
     steps:
-      - name: download artifact
+      - name: download the file
         uses: actions/download-artifact@v3
         with: 
           name: file
