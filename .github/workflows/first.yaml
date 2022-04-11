@@ -17,7 +17,7 @@ jobs:
           path: file
   run-windows-job:
     runs-on: windows-latest
-    needs: ["run-shell-command"]
+    #needs: ["run-shell-command"]
     steps:
       - name: download the file
         uses: actions/download-artifact@v3
@@ -25,3 +25,13 @@ jobs:
           name: file
       - name: pwsh
         run: cat file
+  run-another-job:
+    runs-on: windows-latest
+    #needs: ["run-shell-command"]
+    steps:
+      - name: download the file
+        uses: actions/download-artifact@v3
+        with: 
+          name: file
+      - name: pwsh
+        run: exit 1
