@@ -9,6 +9,6 @@ key:
         key: one22
         key2: two22
 array:
-    - value0111112222
+    - value011111
     - value1
     - {key: one}
