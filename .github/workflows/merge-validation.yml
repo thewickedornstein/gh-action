@@ -1,7 +1,7 @@
 name: Merge Validation test
 on: 
   pull_request:
-    types: [opened, edited]
+      types: [opened, synchronize]
 jobs:
   run-test:
     runs-on: ubuntu-latest
