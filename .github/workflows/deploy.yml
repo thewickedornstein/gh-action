@@ -1,0 +1,17 @@
+name: Deploy to AzureWebapp
+on:
+  push:
+    branches:
+      - master
+    workflow_dispatch:
+    
+jobs:
+  build-application:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+      - name: ls
+        run: ls
+
+
