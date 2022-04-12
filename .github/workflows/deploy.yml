@@ -1,0 +1,46 @@
+name: Deploy to AzureWebapp
+on:
+  push:
+    branches:
+      - master
+    
+jobs:
+  build-application:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: buil applicaiton
+        run: dotnet publish -c Release -o ./gh-action
+      
+      - name: upload artifact for deployment job
+        uses: actions/upload-artifact@v3
+        with:
+          name: .web-app
+          path: ./gh-action
+
+  deploy-application:
+    runs-on: ubuntu-latest
+    needs: build-application
+
+    steps:
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v3
+        with:
+         name: .web-app
+
+      - name: 'Login via Azure CLI'
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+      
+      - name: Deploy to Azure Web App
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v2
+        env:
+          AZURE_WEBAPP_NAME: gh-actions    # set this to the name of your Azure Web App
+          AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
+        with:
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
+          package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
