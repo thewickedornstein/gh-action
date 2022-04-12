@@ -8,6 +8,3 @@ jobs:
     steps:
       - name: run test
         run: exit 0
-
-  
-        
