@@ -5,5 +5,7 @@ jobs:
   run-test:
     runs-on: ubuntu-latest
     steps:
+      - name: sleep
+        run: sleep 300
       - name: run test
         run: exit 0
