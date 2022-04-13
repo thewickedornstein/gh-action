@@ -6,4 +6,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: run test
-        run: exit 0
+        run: |
+          sleep 60
+          exit 0
